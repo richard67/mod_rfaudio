@@ -23,6 +23,10 @@
 		<language tag="en-GB">language/en-GB/mod_rfaudio.ini</language>
 		<language tag="en-GB">language/en-GB/mod_rfaudio.sys.ini</language>
 	</languages>
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" name="Richard Fath's Audio Player Module Update Site">https://raw.githubusercontent.com/richard67/mod_rfaudio/main/manifest.xml</server>
+	</updateservers>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
