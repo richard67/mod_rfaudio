@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_rfaudio</name>
+	<author>Richard Fath</author>
+	<creationDate>2004-07</creationDate>
+	<copyright>(C) 2022 Richard Fath</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@richard-fath.de</authorEmail>
+	<authorUrl>www.richard-fath.de</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_RFAUDIO_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Module\RfAudio</namespace>
+	<media destination="mod_rfaudio" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+	<files>
+		<folder module="mod_rfaudio">services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_rfaudio.ini</language>
+		<language tag="en-GB">language/en-GB/mod_rfaudio.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="autoplay"
+					type="radio"
+					label="MOD_RFAUDIO_AUTOPLAY_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="controls"
+					type="radio"
+					label="MOD_RFAUDIO_CONTROLS_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="loop"
+					type="radio"
+					label="MOD_RFAUDIO_LOOP_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="muted"
+					type="radio"
+					label="MOD_RFAUDIO_MUTED_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="preload"
+					type="list"
+					label="MOD_RFAUDIO_PRELOAD_LABEL"
+					required="true"
+					default="none"
+					validate="options"
+					>
+					<option value="auto" />
+					<option value="metadata" />
+					<option value="none" />
+				</field>
+				<field
+					name="download_link"
+					type="text"
+					label="MOD_RFAUDIO_DOWNLOAD_LINK_LABEL"
+				/>
+				<field
+					name="image"
+					type="media"
+					label="MOD_RFAUDIO_IMAGE_LABEL"
+					required="true"
+					types="images"
+				/>
+			</fieldset>
+
+			<fieldset name="sources" label="MOD_RFAUDIO_SOURCES_FIELDSET_LABEL">
+				<field
+					name="sources"
+					type="subform"
+					label="MOD_RFAUDIO_SOURCES_LABEL"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable-table"
+					buttons="add,remove,move"
+				>
+					<form>
+						<field
+							name="file"
+							type="media"
+							label="MOD_RFAUDIO_SOURCE_FILE_LABEL"
+							required="true"
+							preview="false"
+							types="audios"
+						/>
+						<field
+							name="type"
+							type="list"
+							label="MOD_RFAUDIO_SOURCE_TYPE_LABEL"
+							required="true"
+							validate="options"
+							>
+							<option value="audio/mpeg" />
+							<option value="audio/ogg" />
+							<option value="audio/wav" />
+						</field>
+					</form>
+				</field>
+			</fieldset>
+
+			<fieldset name="playlist" label="MOD_RFAUDIO_PLAYLIST_FIELDSET_LABEL">
+				<field
+					name="playlist"
+					type="subform"
+					label="MOD_RFAUDIO_PLAYLIST_LABEL"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable-table"
+					buttons="add,remove,move"
+				>
+					<form>
+						<field
+							name="position"
+							type="text"
+							label="MOD_RFAUDIO_PLAYLIST_ITEM_POSITION_LABEL"
+							required="true"
+							filter="float"
+						/>
+						<field
+							name="title"
+							type="text"
+							label="MOD_RFAUDIO_PLAYLIST_ITEM_TITLE_LABEL"
+							required="true"
+						/>
+					</form>
+				</field>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+					validate="CssIdentifier"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="1"
+					filter="integer"
+					validate="options"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
