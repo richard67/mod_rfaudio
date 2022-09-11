@@ -5,13 +5,13 @@
 		<description>Richard Fath's audio player module for Joomla! CMS</description>
 		<element>mod_rfaudio</element>
 		<type>module</type>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<client>site</client>
 		<infourl title="Richard Fath's Audio Player Module">https://github.com/richard67/mod_rfaudio/blob/main/README.md</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/1.0.0/mod_rfaudio_1.0.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/1.0.1/mod_rfaudio_1.0.1.zip</downloadurl>
 		</downloads>
-		<sha512>9b15caa8db35da1d97ee58c2aa2b6505a9f3313e189c7d3b914fbe59e38199de74affc6ba1a9f1b16c1937ef2ccd6b30f3ff8d735f1b031b09b38360bde778f1</sha512>
+		<sha512>359dc1eb2d6539143ecea7b400ce4266e097bdac78e18b30cda8e01402c05860400dd6cf4b3ebcdb56b85ce081e83d0578f63f80578f7b73e35ee2b9620555c8</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
