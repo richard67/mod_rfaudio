@@ -11,6 +11,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/1.0.0/mod_rfaudio_1.0.0.zip</downloadurl>
 		</downloads>
+		<sha512>9b15caa8db35da1d97ee58c2aa2b6505a9f3313e189c7d3b914fbe59e38199de74affc6ba1a9f1b16c1937ef2ccd6b30f3ff8d735f1b031b09b38360bde778f1</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
