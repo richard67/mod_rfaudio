@@ -22,7 +22,7 @@ $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('mod_rfaudio.es5', 'mod_rfaudio/rfaudio-es5.min.js', [], ['nomodule' => true, 'defer' => true], ['core']);
 $wa->registerAndUseScript('mod_rfaudio', 'mod_rfaudio/rfaudio.min.js', [], ['type' => 'module'], ['mod_rfaudio.es5', 'core']);
 
-$stylesheet = $params->get('stylesheet', '-1');
+$stylesheet = $params->get('stylesheet', 'rfaudio.css');
 
 if ($stylesheet !== '-1') {
     $wa->registerAndUseStyle('mod_rfaudio', 'mod_rfaudio/' . $stylesheet);

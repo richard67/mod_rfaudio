@@ -112,6 +112,7 @@
 					description="MOD_RFAUDIO_STYLESHEET_DESCR"
 					directory="media/mod_rfaudio/css"
 					fileFilter="^.+[^min]\.css$"
+					default="rfaudio.css"
 					hide_default="true"
 				/>
 			</fieldset>
