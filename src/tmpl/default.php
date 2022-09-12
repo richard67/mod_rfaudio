@@ -1,8 +1,7 @@
 <?php
 
 /**
- * @package     Joomla.Site
- * @subpackage  mod_rfaudio
+ * @package     mod_rfaudio
  *
  * @copyright   (C) 2022 Richard Fath <https://www.richard-fath.de>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -22,7 +21,12 @@ if (empty($audioAttribs)) {
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseScript('mod_rfaudio.es5', 'mod_rfaudio/rfaudio-es5.min.js', [], ['nomodule' => true, 'defer' => true], ['core']);
 $wa->registerAndUseScript('mod_rfaudio', 'mod_rfaudio/rfaudio.min.js', [], ['type' => 'module'], ['mod_rfaudio.es5', 'core']);
-$wa->registerAndUseStyle('mod_rfaudio', 'mod_rfaudio/rfaudio.css');
+
+$stylesheet = $params->get('stylesheet', 'rfaudio.css');
+
+if ($stylesheet !== '-1') {
+    $wa->registerAndUseStyle('mod_rfaudio', 'mod_rfaudio/' . $stylesheet);
+}
 
 $title        = Text::_($module->title);
 $downloadLink = $params->get('download_link', '');

@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade">
 	<name>mod_rfaudio</name>
 	<author>Richard Fath</author>
-	<creationDate>2004-07</creationDate>
+	<creationDate>2022-09</creationDate>
 	<copyright>(C) 2022 Richard Fath</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>admin@richard-fath.de</authorEmail>
 	<authorUrl>www.richard-fath.de</authorUrl>
-	<version>1.0.1</version>
+	<version>1.0.2-dev</version>
 	<description>MOD_RFAUDIO_XML_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\RfAudio</namespace>
 	<media destination="mod_rfaudio" folder="media">
@@ -20,8 +20,12 @@
 		<folder>tmpl</folder>
 	</files>
 	<languages>
+		<language tag="de-DE">language/de-DE/mod_rfaudio.ini</language>
+		<language tag="de-DE">language/de-DE/mod_rfaudio.sys.ini</language>
 		<language tag="en-GB">language/en-GB/mod_rfaudio.ini</language>
 		<language tag="en-GB">language/en-GB/mod_rfaudio.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/mod_rfaudio.ini</language>
+		<language tag="ru-RU">language/ru-RU/mod_rfaudio.sys.ini</language>
 	</languages>
 	<updateservers>
 		<!-- Note: No spaces or linebreaks allowed between the server tags -->
@@ -31,9 +35,17 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field
+					name="basic_note"
+					type="note"
+					class="alert alert-info"
+					label="MOD_RFAUDIO_BASIC_NOTE_LABEL"
+					description="MOD_RFAUDIO_BASIC_NOTE_DESCR"
+				/>
+				<field
 					name="autoplay"
 					type="radio"
 					label="MOD_RFAUDIO_AUTOPLAY_LABEL"
+					description="MOD_RFAUDIO_AUTOPLAY_DESCR"
 					layout="joomla.form.field.radio.switcher"
 					default="0"
 					>
@@ -44,6 +56,7 @@
 					name="controls"
 					type="radio"
 					label="MOD_RFAUDIO_CONTROLS_LABEL"
+					description="MOD_RFAUDIO_CONTROLS_DESCR"
 					layout="joomla.form.field.radio.switcher"
 					default="0"
 					>
@@ -54,6 +67,7 @@
 					name="loop"
 					type="radio"
 					label="MOD_RFAUDIO_LOOP_LABEL"
+					description="MOD_RFAUDIO_LOOP_DESCR"
 					layout="joomla.form.field.radio.switcher"
 					default="0"
 					>
@@ -64,6 +78,7 @@
 					name="muted"
 					type="radio"
 					label="MOD_RFAUDIO_MUTED_LABEL"
+					description="MOD_RFAUDIO_MUTED_DESCR"
 					layout="joomla.form.field.radio.switcher"
 					default="0"
 					>
@@ -74,6 +89,7 @@
 					name="preload"
 					type="list"
 					label="MOD_RFAUDIO_PRELOAD_LABEL"
+					description="MOD_RFAUDIO_PRELOAD_DESCR"
 					required="true"
 					default="none"
 					validate="options"
@@ -86,13 +102,25 @@
 					name="download_link"
 					type="text"
 					label="MOD_RFAUDIO_DOWNLOAD_LINK_LABEL"
+					description="MOD_RFAUDIO_DOWNLOAD_LINK_DESCR"
 				/>
 				<field
 					name="image"
 					type="media"
 					label="MOD_RFAUDIO_IMAGE_LABEL"
+					description="MOD_RFAUDIO_IMAGE_DESCR"
 					required="true"
 					types="images"
+				/>
+				<field
+					name="stylesheet"
+					type="filelist"
+					label="MOD_RFAUDIO_STYLESHEET_LABEL"
+					description="MOD_RFAUDIO_STYLESHEET_DESCR"
+					directory="media/mod_rfaudio/css"
+					fileFilter="^.+[^min]\.css$"
+					default="rfaudio.css"
+					hide_default="true"
 				/>
 			</fieldset>
 
@@ -101,6 +129,7 @@
 					name="sources"
 					type="subform"
 					label="MOD_RFAUDIO_SOURCES_LABEL"
+					description="MOD_RFAUDIO_SOURCES_DESCR"
 					multiple="true"
 					layout="joomla.form.field.subform.repeatable-table"
 					buttons="add,remove,move"
@@ -110,6 +139,7 @@
 							name="file"
 							type="media"
 							label="MOD_RFAUDIO_SOURCE_FILE_LABEL"
+							description="MOD_RFAUDIO_SOURCE_FILE_DESCR"
 							required="true"
 							preview="false"
 							types="audios"
@@ -118,6 +148,7 @@
 							name="type"
 							type="list"
 							label="MOD_RFAUDIO_SOURCE_TYPE_LABEL"
+							description="MOD_RFAUDIO_SOURCE_TYPE_DESCR"
 							required="true"
 							validate="options"
 							>
@@ -134,6 +165,7 @@
 					name="playlist"
 					type="subform"
 					label="MOD_RFAUDIO_PLAYLIST_LABEL"
+					description="MOD_RFAUDIO_PLAYLIST_DESCR"
 					multiple="true"
 					layout="joomla.form.field.subform.repeatable-table"
 					buttons="add,remove,move"
@@ -143,6 +175,7 @@
 							name="position"
 							type="text"
 							label="MOD_RFAUDIO_PLAYLIST_ITEM_POSITION_LABEL"
+							description="MOD_RFAUDIO_PLAYLIST_ITEM_POSITION_DESCR"
 							required="true"
 							filter="float"
 						/>
@@ -150,6 +183,7 @@
 							name="title"
 							type="text"
 							label="MOD_RFAUDIO_PLAYLIST_ITEM_TITLE_LABEL"
+							description="MOD_RFAUDIO_PLAYLIST_ITEM_TITLE_DESCR"
 							required="true"
 						/>
 					</form>
