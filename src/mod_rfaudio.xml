@@ -105,6 +105,15 @@
 					required="true"
 					types="images"
 				/>
+				<field
+					name="stylesheet"
+					type="filelist"
+					label="MOD_RFAUDIO_STYLESHEET_LABEL"
+					description="MOD_RFAUDIO_STYLESHEET_DESCR"
+					directory="media/mod_rfaudio/css"
+					fileFilter="^.+[^min]\.css$"
+					hide_default="true"
+				/>
 			</fieldset>
 
 			<fieldset name="sources" label="MOD_RFAUDIO_SOURCES_FIELDSET_LABEL">
