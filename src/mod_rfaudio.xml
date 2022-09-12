@@ -35,6 +35,13 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field
+					name="basic_note"
+					type="note"
+					class="alert alert-info"
+					label="MOD_RFAUDIO_BASIC_NOTE_LABEL"
+					description="MOD_RFAUDIO_BASIC_NOTE_DESCR"
+				/>
+				<field
 					name="autoplay"
 					type="radio"
 					label="MOD_RFAUDIO_AUTOPLAY_LABEL"
