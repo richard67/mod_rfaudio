@@ -1,134 +1,132 @@
 div.rfaudio {
-	position: relative;
-	background-color: #000;
-	color: #fff;
-	float: left;
-	margin: 0 0 9px;
-	padding: 0;
-	height: 378px;
-	width: 500px;
+  position: relative;
+  float: left;
+  width: 500px;
+  height: 378px;
+  padding: 0;
+  margin: 0 0 9px;
+  color: #fff;
+  background-color: #000;
 }
 div.rfaudioimg {
-	position: relative;
-	float: none;
-	height: 333px;
-	width: 500px;
-	margin: 0;
-	padding: 0;
+  position: relative;
+  float: none;
+  width: 500px;
+  height: 333px;
+  padding: 0;
+  margin: 0;
 }
 div.rfaudiostatus {
-	position: absolute;
-	display: block;
-	top: 0;
-	left: 0;
-	margin: 9px;
-	padding: 0;
-	z-index: 9999;
-	font-family: var(--body-font-family);
-	font-size: 13px;
-	text-decoration: none;
-	color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: block;
+  padding: 0;
+  margin: 9px;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
 }
 div.rfaudioctl {
-	position: relative;
-	float: none;
-	height: 45px;
-	width: 500px;
-	font-family: var(--body-font-family);
-	font-size: 13px;
-	line-height: 13px;
-	margin: 0;
-	padding: 0;
+  position: relative;
+  float: none;
+  width: 500px;
+  height: 45px;
+  padding: 0;
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  line-height: 13px;
 }
 div.rfaudioctl audio {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	max-height: 45px;
-	width: 500px;
-	border: 0;
-	margin: 0;
-	padding: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  max-height: 45px;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 div.rfaudioplaylist {
-	background-color: #222;
-	float: none;
-	display: block;
-	overflow: auto;
-	margin: 0 0 9px;
-	padding: 0;
+  display: block;
+  float: none;
+  width: 320px;
+  height: 378px;
+  padding: 0;
+  margin: 0 0 9px;
+  overflow: auto;
+  background-color: #222;
 }
-div.rfaudioplaylist {
-	height: 378px;
-	width: 320px;
+ul.rfaudioplaylist-list {
+  padding: 0;
+  margin: 10px 0 0 15px;
 }
-div.rfaudioplaylist ul {
-	margin: 10px 0 0 15px;
-	padding: 0;
+li.rfaudioplaylist-item {
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none outside none;
 }
-div.rfaudioplaylist li {
-	list-style: none outside none;
-	height: 30px;
-	margin: 0;
-	padding: 0;
+li.rfaudioplaylist-item a {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #bbb !important;
+  text-decoration: none;
 }
-div.rfaudioplaylist li a {
-	font-family: var(--body-font-family);
-	font-size: 13px;
-	text-decoration: none;
-	color: #bbb !important;
-}
-div.rfaudioplaylist li a:hover,
-div.rfaudioplaylist li a:focus {
-	cursor: pointer;
-	color: #fff !important;
-	text-decoration: underline !important;
+li.rfaudioplaylist-item a:hover,
+li.rfaudioplaylist-item a:focus {
+  color: #fff !important;
+  text-decoration: underline !important;
+  cursor: pointer;
 }
 @media (max-width: 919px) {
-	div.rfaudio {
-		margin: 0;
-	}
-	div.rfaudioplaylist {
-		height: 189px;
-		width: 500px;
-		display: inline-block;
-	}
+  div.rfaudio {
+    margin: 0;
+  }
+  div.rfaudioplaylist {
+    display: inline-block;
+    width: 500px;
+    height: 189px;
+  }
 }
 @media (max-width: 559px) {
-	div.rfaudio {
-		height: auto;
-		width: 100%;
-		margin: 0;
-	}
-	div.rfaudioimg {
-		height: auto;
-		width: 100%;
-	}
-	div.rfaudioctl {
-		width: 100%;
-	}
-	div.rfaudio img {
-		height: auto;
-		width: 100%;
-	}
-	div.rfaudio audio {
-		width: 100%;
-	}
-	div.rfaudioplaylist {
-		height: 189px;
-		width: 100%;
-		display: inline-block;
-	}
+  div.rfaudio {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  div.rfaudioimg {
+    width: 100%;
+    height: auto;
+  }
+  div.rfaudioctl {
+    width: 100%;
+  }
+  div.rfaudio img {
+    width: 100%;
+    height: auto;
+  }
+  div.rfaudio audio {
+    width: 100%;
+  }
+  div.rfaudioplaylist {
+    display: inline-block;
+    width: 100%;
+    height: 189px;
+  }
 }
 @media (max-width: 419px) {
-	div.rfaudioplaylist ul {
-		margin: 8px 0 0 12px;
-		padding: 0;
-	}
-	div.rfaudioplaylist li {
-		height: 24px;
-	}
-	div.rfaudioplaylist li a {
-		font-size: 10px;
-	}
+  ul.rfaudioplaylist-list {
+    padding: 0;
+    margin: 8px 0 0 12px;
+  }
+  li.rfaudioplaylist-item {
+    height: 24px;
+  }
+  li.rfaudioplaylist-item a {
+    font-size: 10px;
+  }
 }

@@ -57,13 +57,13 @@ Text::script('MOD_RFAUDIO_SEEKING');
 </div>
 <?php if (!empty($playlist)) : ?>
 <div class="rfaudioplaylist">
-<ul>
+<ul class="rfaudioplaylist-list">
 <?php if ($playlist->playlist0->position > 0) : ?>
-<li><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
+<li class="rfaudioplaylist-item"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
 <?php endif; ?>
 <?php $count = 0; ?>
 <?php foreach ($playlist as $item) : ?>
-<li><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
+<li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
 <?php endforeach; ?>
 </ul>
 </div>
