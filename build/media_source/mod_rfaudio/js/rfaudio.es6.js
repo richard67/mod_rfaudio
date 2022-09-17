@@ -26,7 +26,7 @@ function updchapter(elAudio, elStatus, playlist, txtSeeking) {
         break;
       }
 
-      i--;
+      i -= 1;
     }
 
     elStatus.innerHTML = tmpTitle;
@@ -34,35 +34,35 @@ function updchapter(elAudio, elStatus, playlist, txtSeeking) {
 }
 
 const allAudioDivs = document.querySelectorAll('div.rfaudioplayer');
-allAudioDivs.forEach(audioDiv => {
+allAudioDivs.forEach((audioDiv) => {
   const myAudio = audioDiv.getElementsByTagName('audio')[0];
   const myStatus = audioDiv.querySelector('.rfaudiostatus');
   const myPlaylistItems = audioDiv.getElementsByTagName('li');
 
   const textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING');
 
-  let myPlaylist = [];
+  const myPlaylist = [];
 
-  for (let i = 0; i < myPlaylistItems.length; ++i) {
+  for (let i = 0; i < myPlaylistItems.length; i += 1) {
     const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
     const item = {
-      'start': parseFloat(myPlaylistItem.getAttribute('data-start')),
-      'title': myPlaylistItem.innerHTML
+      start: parseFloat(myPlaylistItem.getAttribute('data-start')),
+      title: myPlaylistItem.innerHTML,
     };
     myPlaylist[i] = item;
-    myPlaylistItem.addEventListener('click', function () {
+    myPlaylistItem.addEventListener('click', () => {
       seek(myAudio, item.start);
     });
   }
 
   myPlaylist[myPlaylistItems.length] = {
-    'start': myAudio.duration,
-    'title': ''
+    start: myAudio.duration,
+    title: '',
   };
-  myAudio.addEventListener('durationchange', function () {
+  myAudio.addEventListener('durationchange', () => {
     myPlaylist[myPlaylistItems.length].start = myAudio.duration;
   });
-  myAudio.addEventListener('timeupdate', function () {
+  myAudio.addEventListener('timeupdate', () => {
     updchapter(myAudio, myStatus, myPlaylist, textSeeking);
   });
 });

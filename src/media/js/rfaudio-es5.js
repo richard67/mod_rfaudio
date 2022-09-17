@@ -29,7 +29,7 @@
           break;
         }
 
-        i--;
+        i -= 1;
       }
 
       elStatus.innerHTML = tmpTitle;
@@ -49,8 +49,8 @@
     var _loop = function _loop(i) {
       var myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
       var item = {
-        'start': parseFloat(myPlaylistItem.getAttribute('data-start')),
-        'title': myPlaylistItem.innerHTML
+        start: parseFloat(myPlaylistItem.getAttribute('data-start')),
+        title: myPlaylistItem.innerHTML
       };
       myPlaylist[i] = item;
       myPlaylistItem.addEventListener('click', function () {
@@ -58,13 +58,13 @@
       });
     };
 
-    for (var i = 0; i < myPlaylistItems.length; ++i) {
+    for (var i = 0; i < myPlaylistItems.length; i += 1) {
       _loop(i);
     }
 
     myPlaylist[myPlaylistItems.length] = {
-      'start': myAudio.duration,
-      'title': ''
+      start: myAudio.duration,
+      title: ''
     };
     myAudio.addEventListener('durationchange', function () {
       myPlaylist[myPlaylistItems.length].start = myAudio.duration;
