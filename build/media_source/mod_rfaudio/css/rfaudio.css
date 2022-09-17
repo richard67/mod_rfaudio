@@ -1,10 +1,12 @@
+div.rfaudioplayer {
+  margin-bottom: 1rem;
+}
 div.rfaudio {
   position: relative;
   float: left;
   width: 500px;
   height: 378px;
   padding: 0;
-  margin: 0 0 9px;
   color: #fff;
   background-color: #000;
 }
@@ -24,8 +26,6 @@ div.rfaudiostatus {
   display: block;
   padding: 0;
   margin: 9px;
-  font-family: var(--body-font-family);
-  font-size: 13px;
   color: #fff;
   text-decoration: none;
 }
@@ -36,9 +36,6 @@ div.rfaudioctl {
   height: 45px;
   padding: 0;
   margin: 0;
-  font-family: var(--body-font-family);
-  font-size: 13px;
-  line-height: 13px;
 }
 div.rfaudioctl audio {
   position: absolute;
@@ -56,7 +53,6 @@ div.rfaudioplaylist {
   width: 320px;
   height: 378px;
   padding: 0;
-  margin: 0 0 9px;
   overflow: auto;
   background-color: #222;
 }
@@ -65,14 +61,12 @@ ul.rfaudioplaylist-list {
   margin: 10px 0 0 15px;
 }
 li.rfaudioplaylist-item {
-  height: 30px;
+  min-height: 2.5rem;
   padding: 0;
   margin: 0;
   list-style: none outside none;
 }
 li.rfaudioplaylist-item a {
-  font-family: var(--body-font-family);
-  font-size: 13px;
   color: #bbb !important;
   text-decoration: none;
 }
@@ -116,17 +110,5 @@ li.rfaudioplaylist-item a:focus {
     display: inline-block;
     width: 100%;
     height: 189px;
-  }
-}
-@media (max-width: 419px) {
-  ul.rfaudioplaylist-list {
-    padding: 0;
-    margin: 8px 0 0 12px;
-  }
-  li.rfaudioplaylist-item {
-    height: 24px;
-  }
-  li.rfaudioplaylist-item a {
-    font-size: 10px;
   }
 }
