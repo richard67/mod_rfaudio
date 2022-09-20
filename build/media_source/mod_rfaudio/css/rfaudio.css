@@ -32,6 +32,8 @@ div.rfaudioctl {
   margin: 0;
 }
 div.rfaudioctl audio {
+  position: relative;
+  float: none;
   padding: 0;
   margin: 0;
   border: 0;
