@@ -42,7 +42,7 @@ div.rfaudioplaylist {
   display: block;
   float: none;
   padding: 0;
-  overflow: auto;
+  overflow-y: scroll;
   background-color: #222;
 }
 ul.rfaudioplaylist-list {
