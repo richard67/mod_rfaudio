@@ -50,8 +50,8 @@ Text::script('MOD_RFAUDIO_SEEKING');
 <div class="rfaudiostatus"> </div>
 <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
 </div>
-<div class="rfaudioctl" style="max-width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
-<audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="max-width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
+<div class="rfaudioctl" style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
+<audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
 <?php foreach ($sources as $source) : ?>
 <source src="<?php echo HTMLHelper::_('cleanImageURL', $source->file)->url; ?>" type="<?php echo $source->type; ?>" />
 <?php endforeach; ?>
