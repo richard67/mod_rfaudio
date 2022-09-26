@@ -33,11 +33,11 @@ function updchapter(elAudio, elStatus, playlist, txtSeeking) {
   }
 }
 
-const allAudioDivs = document.querySelectorAll('div.rfaudioplayer');
-allAudioDivs.forEach(audioDiv => {
-  const myAudio = audioDiv.getElementsByTagName('audio')[0];
-  const myStatus = audioDiv.querySelector('.rfaudiostatus');
-  const myPlaylistItems = audioDiv.getElementsByTagName('li');
+const allAudioPlayerDivs = document.querySelectorAll('div.rfaudioplayer');
+allAudioPlayerDivs.forEach(audioPlayerDiv => {
+  const myAudio = audioPlayerDiv.getElementsByTagName('audio')[0];
+  const myStatus = audioPlayerDiv.querySelector('.rfaudiostatus');
+  const myPlaylistItems = audioPlayerDiv.getElementsByTagName('li');
 
   const textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING');
 

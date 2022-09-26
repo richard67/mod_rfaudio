@@ -36,11 +36,11 @@
     }
   }
 
-  var allAudioDivs = document.querySelectorAll('div.rfaudioplayer');
-  allAudioDivs.forEach(function (audioDiv) {
-    var myAudio = audioDiv.getElementsByTagName('audio')[0];
-    var myStatus = audioDiv.querySelector('.rfaudiostatus');
-    var myPlaylistItems = audioDiv.getElementsByTagName('li');
+  var allAudioPlayerDivs = document.querySelectorAll('div.rfaudioplayer');
+  allAudioPlayerDivs.forEach(function (audioPlayerDiv) {
+    var myAudio = audioPlayerDiv.getElementsByTagName('audio')[0];
+    var myStatus = audioPlayerDiv.querySelector('.rfaudiostatus');
+    var myPlaylistItems = audioPlayerDiv.getElementsByTagName('li');
 
     var textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING');
 
