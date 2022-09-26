@@ -46,36 +46,36 @@ Text::script('MOD_RFAUDIO_SEEKING');
 
 ?>
 <div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px; max-height: <?php echo ($playerHeight + $playlistMinHeight); ?>px;">
-<div class="rfaudio">
-<div class="rfaudioimg" style="max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $imageHeight; ?>px;">
-<div class="rfaudiostatus"> </div>
-<?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
-</div>
-<div class="rfaudioctl" style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
-<audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
-<?php foreach ($sources as $source) : ?>
-<source src="<?php echo HTMLHelper::_('cleanImageURL', $source->file)->url; ?>" type="<?php echo $source->type; ?>" />
-<?php endforeach; ?>
-<?php echo Text::_('MOD_RFAUDIO_NO_BROWSER_SUPPORT'); ?>
-<?php if ($downloadLink) : ?>
-<?php echo ' ' . Text::sprintf('MOD_RFAUDIO_USE_DOWNLOAD', $downloadLink); ?>
-<?php endif; ?>
-</audio>
-</div>
-</div>
-<?php if (!empty($playlist)) : ?>
-<div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px;">
-<div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; max-height: <?php echo $playerHeight; ?>px;">
-<ul class="rfaudioplaylist-list">
-<?php if ($playlist->playlist0->position > 0) : ?>
-<li class="rfaudioplaylist-item"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
-<?php endif; ?>
-<?php $count = 0; ?>
-<?php foreach ($playlist as $item) : ?>
-<li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
-<?php endforeach; ?>
-</ul>
-</div>
-</div>
-<?php endif; ?>
+    <div class="rfaudio">
+        <div class="rfaudioimg" style="max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $imageHeight; ?>px;">
+            <div class="rfaudiostatus"> </div>
+            <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
+        </div>
+        <div class="rfaudioctl" style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
+            <audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
+                <?php foreach ($sources as $source) : ?>
+                <source src="<?php echo HTMLHelper::_('cleanImageURL', $source->file)->url; ?>" type="<?php echo $source->type; ?>" />
+                <?php endforeach; ?>
+                <?php echo Text::_('MOD_RFAUDIO_NO_BROWSER_SUPPORT'); ?>
+                <?php if ($downloadLink) :
+                    echo ' ' . Text::sprintf('MOD_RFAUDIO_USE_DOWNLOAD', $downloadLink);
+                endif; ?>
+             </audio>
+        </div>
+    </div>
+    <?php if (!empty($playlist)) : ?>
+    <div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px;">
+        <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; max-height: <?php echo $playerHeight; ?>px;">
+            <ul class="rfaudioplaylist-list">
+                <?php if ($playlist->playlist0->position > 0) : ?>
+                <li class="rfaudioplaylist-item"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
+                <?php endif; ?>
+                <?php $count = 0; ?>
+                <?php foreach ($playlist as $item) : ?>
+                <li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <?php endif; ?>
 </div>

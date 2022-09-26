@@ -43,12 +43,12 @@ class RfAudioHelper
         $audioAttribs = ' preload="' . $params->get('preload') . '"';
 
         foreach (['autoplay', 'controls', 'loop', 'muted'] as $attribute) {
-            $audioAttribs .= $params->get($attribute) ? ' ' . $attribute .'="' . $attribute .'"' : '';
+            $audioAttribs .= $params->get($attribute) ? ' ' . $attribute . '="' . $attribute . '"' : '';
         }
 
         // Use src attribute if there is only one source file
         if (!isset($sources->sources1)) {
-            $audioAttribs .= ' src="' . HTMLHelper::_('cleanImageURL', $sources->sources0->file)->url .'"';
+            $audioAttribs .= ' src="' . HTMLHelper::_('cleanImageURL', $sources->sources0->file)->url . '"';
         }
 
         return $audioAttribs;
