@@ -64,8 +64,6 @@ ol.rfaudioplaylist-list {
 }
 li.rfaudioplaylist-item {
   min-height: 2.5rem;
-}
-li.rfaudioplaylist-item {
   padding: 0;
   list-style: decimal inside none;
 }
