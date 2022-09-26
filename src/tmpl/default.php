@@ -30,6 +30,7 @@ if ($stylesheet !== '-1') {
 
 $title             = Text::_($module->title);
 $controlsHeight    = $params->get('controls_height', 45);
+$showStatus        = $params->get('show_status', 0);
 $playlistMinHeight = $params->get('playlist_min_height', 120);
 $playlistMinWidth  = $params->get('playlist_min_width', 320);
 $image             = $params->get('image');
@@ -39,16 +40,20 @@ $imageWidth        = $imageAttribs['width'];
 $playerHeight      = $imageHeight + $controlsHeight;
 $downloadLink      = $params->get('download_link', '');
 $playlist          = $params->get('playlist');
+$showPlaylistItem  = $params->get('show_playlist_item', 0);
 $sources           = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
 
 // Load JS language strings
+Text::script('MOD_RFAUDIO_LOADING');
 Text::script('MOD_RFAUDIO_SEEKING');
 
 ?>
 <div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px; max-height: <?php echo ($playerHeight + $playlistMinHeight); ?>px;">
     <div class="rfaudio">
         <div class="rfaudioimg" style="max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $imageHeight; ?>px;">
-            <div class="rfaudiostatus"> </div>
+            <?php if ($showStatus || $showPlaylistItem) : ?>
+            <div class="rfaudiostatus"<?php echo $showStatus ? ' data-show-status="true"' : ''; ?><?php echo $showPlaylistItem ? ' data-show-title="true"' : ''; ?>> </div>
+            <?php endif; ?>
             <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
         </div>
         <div class="rfaudioctl" style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">

@@ -33,36 +33,82 @@ function updchapter(elAudio, elStatus, playlist, txtSeeking) {
   }
 }
 
+function setstatus(el, txt) {
+  el.innerHTML = txt;
+}
+
+function clearstatus(el, txt) {
+  if (el.innerHTML === txt) el.innerHTML = '';
+}
+
 const allAudioPlayerDivs = document.querySelectorAll('div.rfaudioplayer');
 allAudioPlayerDivs.forEach(audioPlayerDiv => {
   const myAudio = audioPlayerDiv.getElementsByTagName('audio')[0];
   const myStatus = audioPlayerDiv.querySelector('.rfaudiostatus');
+  const showStatus = myStatus ? !!myStatus.getAttribute('data-show-status') : false;
+  const showTitle = myStatus ? !!myStatus.getAttribute('data-show-title') : false;
   const myPlaylistItems = audioPlayerDiv.getElementsByTagName('li');
+  let textSeeking = '';
 
-  const textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING');
+  if (showStatus) {
+    const textLoading = Joomla.Text._('MOD_RFAUDIO_LOADING').replace('&hellip;', '\u{2026}');
 
-  const myPlaylist = [];
-
-  for (let i = 0; i < myPlaylistItems.length; i += 1) {
-    const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
-    const item = {
-      start: parseFloat(myPlaylistItem.getAttribute('data-start')),
-      title: myPlaylistItem.innerHTML
-    };
-    myPlaylist[i] = item;
-    myPlaylistItem.addEventListener('click', () => {
-      seek(myAudio, item.start);
+    textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING').replace('&hellip;', '\u{2026}');
+    myAudio.addEventListener('loadstart', () => {
+      if (myAudio.networkState === 2) {
+        setstatus(myStatus, textLoading);
+      }
+    });
+    myAudio.addEventListener('waiting', () => {
+      if (myAudio.networkState === 2) {
+        setstatus(myStatus, textLoading);
+      }
+    });
+    myAudio.addEventListener('canplay', () => {
+      clearstatus(myStatus, textLoading);
+    });
+    myAudio.addEventListener('playing', () => {
+      clearstatus(myStatus, textLoading);
+    });
+    myAudio.addEventListener('seeking', () => {
+      setstatus(myStatus, textSeeking);
+    });
+    myAudio.addEventListener('seeked', () => {
+      clearstatus(myStatus, textSeeking);
     });
   }
 
-  myPlaylist[myPlaylistItems.length] = {
-    start: myAudio.duration,
-    title: ''
-  };
-  myAudio.addEventListener('durationchange', () => {
-    myPlaylist[myPlaylistItems.length].start = myAudio.duration;
-  });
-  myAudio.addEventListener('timeupdate', () => {
-    updchapter(myAudio, myStatus, myPlaylist, textSeeking);
-  });
+  if (showTitle) {
+    const myPlaylist = [];
+
+    for (let i = 0; i < myPlaylistItems.length; i += 1) {
+      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
+      const item = {
+        start: parseFloat(myPlaylistItem.getAttribute('data-start')),
+        title: myPlaylistItem.innerHTML
+      };
+      myPlaylist[i] = item;
+      myPlaylistItem.addEventListener('click', () => {
+        seek(myAudio, item.start);
+      });
+    }
+
+    myPlaylist[myPlaylistItems.length] = {
+      start: myAudio.duration,
+      title: ''
+    };
+    myAudio.addEventListener('durationchange', () => {
+      myPlaylist[myPlaylistItems.length].start = myAudio.duration;
+    });
+    myAudio.addEventListener('timeupdate', () => {
+      updchapter(myAudio, myStatus, myPlaylist, textSeeking);
+    });
+  } else {
+    for (let i = 0; i < myPlaylistItems.length; i += 1) {
+      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
+      myPlaylistItem.addEventListener('click', () => {
+        seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')));
+      });
+    }
+  }
 });

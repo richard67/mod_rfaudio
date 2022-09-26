@@ -122,6 +122,17 @@
 					types="images"
 				/>
 				<field
+					name="show_status"
+					type="radio"
+					label="MOD_RFAUDIO_SHOW_STATUS_LABEL"
+					description="MOD_RFAUDIO_SHOW_STATUS_DESCR"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
 					name="stylesheet"
 					type="filelist"
 					label="MOD_RFAUDIO_STYLESHEET_LABEL"
@@ -186,6 +197,17 @@
 					description="MOD_RFAUDIO_PLAYLIST_MIN_WIDTH_DESCR"
 					filter="integer"
 				/>
+				<field
+					name="show_playlist_item"
+					type="radio"
+					label="MOD_RFAUDIO_SHOW_ACTUAL_TITLE_LABEL"
+					description="MOD_RFAUDIO_SHOW_ACTUAL_TITLE_DESCR"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 				<field
 					name="playlist"
 					type="subform"
