@@ -34,7 +34,7 @@ function updchapter(elAudio, elStatus, playlist, txtSeeking) {
 }
 
 const allAudioPlayerDivs = document.querySelectorAll('div.rfaudioplayer');
-allAudioPlayerDivs.forEach((audioDiv) => {
+allAudioPlayerDivs.forEach((audioPlayerDiv) => {
   const myAudio = audioPlayerDiv.getElementsByTagName('audio')[0];
   const myStatus = audioPlayerDiv.querySelector('.rfaudiostatus');
   const myPlaylistItems = audioPlayerDiv.getElementsByTagName('li');
