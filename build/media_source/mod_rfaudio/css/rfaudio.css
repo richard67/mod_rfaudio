@@ -1,6 +1,10 @@
+div.rfaudioplayer {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
 div.rfaudio {
-  position: relative;
-  float: left;
+  flex: 0 1 auto;
   padding: 0;
   color: #fff;
   background-color: #000;
@@ -35,14 +39,22 @@ div.rfaudioctl audio {
   margin: 0;
   border: 0;
 }
-div.rfaudioplaylist {
-  display: block;
-  float: none;
+div.rfaudioplaylistwrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  flex: 1 1 320px;
   padding: 0;
-  overflow-y: scroll;
   background-color: #222;
 }
+div.rfaudioplaylist {
+  flex: 1 1 120px;
+  padding: 0;
+  background-color: #222;
+  overflow-y: scroll;
+}
 ul.rfaudioplaylist-list {
+  display: block;
   padding: 0;
   margin: .5rem 0 0 1rem;
 }

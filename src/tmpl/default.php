@@ -28,24 +28,25 @@ if ($stylesheet !== '-1') {
     $wa->registerAndUseStyle('mod_rfaudio', 'mod_rfaudio/' . $stylesheet);
 }
 
-$title            = Text::_($module->title);
-$controlsHeight   = $params->get('controls_height', 45);
-$playlistMinWidth = $params->get('playlist_min_width', 320);
-$image            = $params->get('image');
-$imageAttribs     = HTMLHelper::_('cleanImageURL', $image)->attributes;
-$imageHeight      = $imageAttribs['height'];
-$imageWidth       = $imageAttribs['width'];
-$playerHeight     = $imageHeight + $controlsHeight;
-$downloadLink     = $params->get('download_link', '');
-$playlist         = $params->get('playlist');
-$sources          = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
+$title             = Text::_($module->title);
+$controlsHeight    = $params->get('controls_height', 45);
+$playlistMinHeight = $params->get('playlist_min_height', 120);
+$playlistMinWidth  = $params->get('playlist_min_width', 320);
+$image             = $params->get('image');
+$imageAttribs      = HTMLHelper::_('cleanImageURL', $image)->attributes;
+$imageHeight       = $imageAttribs['height'];
+$imageWidth        = $imageAttribs['width'];
+$playerHeight      = $imageHeight + $controlsHeight;
+$downloadLink      = $params->get('download_link', '');
+$playlist          = $params->get('playlist');
+$sources           = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
 
 // Load JS language strings
 Text::script('MOD_RFAUDIO_SEEKING');
 
 ?>
-<div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px;">
-<div class="rfaudio" style="max-width: 100%;">
+<div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px; max-height: <?php echo ($playerHeight + $playlistMinHeight); ?>px;">
+<div class="rfaudio">
 <div class="rfaudioimg" style="max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $imageHeight; ?>px;">
 <div class="rfaudiostatus"> </div>
 <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
@@ -63,7 +64,8 @@ Text::script('MOD_RFAUDIO_SEEKING');
 </div>
 </div>
 <?php if (!empty($playlist)) : ?>
-<div class="rfaudioplaylist" style="min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $playerHeight; ?>px;">
+<div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px;">
+<div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; min-height: <?php echo floor($playlistMinHeight / ($playerHeight + $playlistMinHeight) * 100.0); ?>%; max-height: <?php echo $playerHeight; ?>px;">
 <ul class="rfaudioplaylist-list">
 <?php if ($playlist->playlist0->position > 0) : ?>
 <li class="rfaudioplaylist-item"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
@@ -73,6 +75,7 @@ Text::script('MOD_RFAUDIO_SEEKING');
 <li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
 <?php endforeach; ?>
 </ul>
+</div>
 </div>
 <?php endif; ?>
 </div>
