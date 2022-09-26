@@ -66,15 +66,16 @@ Text::script('MOD_RFAUDIO_SEEKING');
     <?php if (!empty($playlist)) : ?>
     <div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px;">
         <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; max-height: <?php echo $playerHeight; ?>px;">
-            <ul class="rfaudioplaylist-list">
-                <?php if ($playlist->playlist0->position > 0) : ?>
-                <li class="rfaudioplaylist-item"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
-                <?php endif; ?>
-                <?php $count = 0; ?>
+            <?php if ($playlist->playlist0->position > 0) : ?>
+            <ol class="rfaudioplaylist-list" start="0">
+                <li class="rfaudioplaylist-item rfaudioplaylist-start"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
+            <?php else : ?>
+            <ol class="rfaudioplaylist-list">
+            <?php endif; ?>
                 <?php foreach ($playlist as $item) : ?>
-                <li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo ++$count; ?>. <?php echo $item->title; ?></a></li>
+                <li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo $item->title; ?></a></li>
                 <?php endforeach; ?>
-            </ul>
+            </ol>
         </div>
     </div>
     <?php endif; ?>

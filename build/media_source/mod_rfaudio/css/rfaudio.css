@@ -49,26 +49,30 @@ div.rfaudioplaylistwrapper {
 }
 div.rfaudioplaylist {
   flex: 1 1 120px;
-  padding: 0;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 0;
   overflow-y: scroll;
+  color: #bbb !important;
   background-color: #222;
 }
-ul.rfaudioplaylist-list {
+ol.rfaudioplaylist-list {
   display: block;
   padding: 0;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-  margin-inline-start: 1rem;
-  margin-inline-end: 0;
+  margin: 0;
 }
 li.rfaudioplaylist-item {
   min-height: 2.5rem;
+}
+li.rfaudioplaylist-item {
   padding: 0;
-  margin: 0;
-  list-style: none outside none;
+  list-style: decimal inside none;
+}
+li.rfaudioplaylist-start {
+  list-style: none inside none;
 }
 li.rfaudioplaylist-item a {
-  color: #bbb !important;
   text-decoration: none;
 }
 li.rfaudioplaylist-item a:hover,
