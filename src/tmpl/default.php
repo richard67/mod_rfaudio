@@ -48,16 +48,16 @@ Text::script('MOD_RFAUDIO_LOADING');
 Text::script('MOD_RFAUDIO_SEEKING');
 
 ?>
-<div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px; max-height: <?php echo ($playerHeight + $playlistMinHeight); ?>px;">
-    <div class="rfaudio">
-        <div class="rfaudioimg" style="max-width: <?php echo $imageWidth; ?>px; max-height: <?php echo $imageHeight; ?>px;">
+<div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px;">
+    <div class="rfaudio" style="width: <?php echo $imageWidth; ?>px;">
+        <div class="rfaudioimg">
             <?php if ($showStatus || $showPlaylistItem) : ?>
             <div class="rfaudiostatus"<?php echo $showStatus ? ' data-show-status="true"' : ''; ?><?php echo $showPlaylistItem ? ' data-show-title="true"' : ''; ?>> </div>
             <?php endif; ?>
             <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
         </div>
-        <div class="rfaudioctl" style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
-            <audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="width: 100%; max-height: <?php echo $controlsHeight; ?>px;">
+        <div class="rfaudioctl" style="height: <?php echo $controlsHeight; ?>px;">
+            <audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?> style="max-height: <?php echo $controlsHeight; ?>px;">
                 <?php foreach ($sources as $source) : ?>
                 <source src="<?php echo HTMLHelper::_('cleanImageURL', $source->file)->url; ?>" type="<?php echo $source->type; ?>" />
                 <?php endforeach; ?>
@@ -69,8 +69,9 @@ Text::script('MOD_RFAUDIO_SEEKING');
         </div>
     </div>
     <?php if (!empty($playlist)) : ?>
-    <div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; min-width: <?php echo floor($playlistMinWidth / ($imageWidth + $playlistMinWidth) * 100.0); ?>%; max-width: <?php echo $imageWidth; ?>px;">
-        <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; max-height: <?php echo $playerHeight; ?>px;">
+    <div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; ?>px; max-width: <?php echo $imageWidth; ?>px;">
+        <div class="rfaudioplaylisttop"> </div>
+        <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; ?>px; max-height: <?php echo $playerHeight; ?>px;">
             <?php if ($playlist->playlist0->position > 0) : ?>
             <ol class="rfaudioplaylist-list" start="0">
                 <li class="rfaudioplaylist-item rfaudioplaylist-start"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>

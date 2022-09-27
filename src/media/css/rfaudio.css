@@ -29,26 +29,29 @@ div.rfaudiostatus {
 div.rfaudioctl {
   position: relative;
   float: none;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
 div.rfaudioctl audio {
   position: relative;
   float: none;
+  width: 100%;
   padding: 0;
   margin: 0;
   border: 0;
 }
 div.rfaudioplaylistwrapper {
   display: flex;
-  flex: 1 1 320px;
   flex-flow: column nowrap;
   align-items: stretch;
   padding: 0;
   background-color: #222;
 }
+div.rfaudioplaylisttop {
+  height: 1.5rem;
+}
 div.rfaudioplaylist {
-  flex: 1 1 120px;
   padding-top: .5rem;
   padding-bottom: .5rem;
   padding-inline-start: 1rem;
