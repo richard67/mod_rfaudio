@@ -17,4 +17,21 @@
 		</tags>
 		<targetplatform name="joomla" version="4.[0123]" />
 	</update>
+	<update>
+		<name>Richard Fath's audio player module</name>
+		<description>Richard Fath's audio player module for Joomla! CMS</description>
+		<element>mod_rfaudio</element>
+		<type>module</type>
+		<version>2.0.0-alpha1</version>
+		<client>site</client>
+		<infourl title="Richard Fath's Audio Player Module">https://github.com/richard67/mod_rfaudio/blob/main/README.md</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/2.0.0-alpha1/mod_rfaudio_2.0.0-alpha1.zip</downloadurl>
+		</downloads>
+		<sha512>c9ab47ec0d2e9a21f1025665dc7d34bee674929685cd89c093fec788eda2890133484a386a5552686c08f6735124a567d7477735646e302e0b5b42d38a8a6ae8</sha512>
+		<tags>
+			<tag>alpha</tag>
+		</tags>
+		<targetplatform name="joomla" version="4.[0123]" />
+	</update>
 </updates>
