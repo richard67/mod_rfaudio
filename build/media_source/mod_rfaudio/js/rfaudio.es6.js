@@ -84,7 +84,7 @@ allAudioPlayerDivs.forEach((audioPlayerDiv) => {
     const myPlaylist = [];
 
     for (let i = 0; i < myPlaylistItems.length; i += 1) {
-      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
+      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('button')[0];
       const item = {
         start: parseFloat(myPlaylistItem.getAttribute('data-start')),
         title: myPlaylistItem.innerHTML,
@@ -107,7 +107,7 @@ allAudioPlayerDivs.forEach((audioPlayerDiv) => {
     });
   } else {
     for (let i = 0; i < myPlaylistItems.length; i += 1) {
-      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
+      const myPlaylistItem = myPlaylistItems[i].getElementsByTagName('button')[0];
       myPlaylistItem.addEventListener('click', () => {
         seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')));
       });

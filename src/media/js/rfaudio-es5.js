@@ -85,7 +85,7 @@
       var myPlaylist = [];
 
       var _loop = function _loop(i) {
-        var myPlaylistItem = myPlaylistItems[i].getElementsByTagName('a')[0];
+        var myPlaylistItem = myPlaylistItems[i].getElementsByTagName('button')[0];
         var item = {
           start: parseFloat(myPlaylistItem.getAttribute('data-start')),
           title: myPlaylistItem.innerHTML
@@ -112,7 +112,7 @@
       });
     } else {
       var _loop2 = function _loop2(_i) {
-        var myPlaylistItem = myPlaylistItems[_i].getElementsByTagName('a')[0];
+        var myPlaylistItem = myPlaylistItems[_i].getElementsByTagName('button')[0];
 
         myPlaylistItem.addEventListener('click', function () {
           seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')));

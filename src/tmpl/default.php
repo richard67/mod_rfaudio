@@ -74,12 +74,12 @@ Text::script('MOD_RFAUDIO_SEEKING');
         <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; ?>px; max-height: <?php echo $playerHeight; ?>px;">
             <?php if ($playlist->playlist0->position > 0) : ?>
             <ol class="rfaudioplaylist-list" start="0">
-                <li class="rfaudioplaylist-item rfaudioplaylist-start"><a data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></a></li>
+                <li class="rfaudioplaylist-item rfaudioplaylist-start"><button data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></button></li>
             <?php else : ?>
             <ol class="rfaudioplaylist-list">
             <?php endif; ?>
                 <?php foreach ($playlist as $item) : ?>
-                <li class="rfaudioplaylist-item"><a data-start="<?php echo $item->position; ?>"><?php echo $item->title; ?></a></li>
+                <li class="rfaudioplaylist-item"><button data-start="<?php echo $item->position; ?>"><?php echo $item->title; ?></button></li>
                 <?php endforeach; ?>
             </ol>
         </div>

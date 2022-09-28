@@ -52,32 +52,39 @@ div.rfaudioplaylisttop {
   height: 1.5rem;
 }
 div.rfaudioplaylist {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  padding-inline-start: 1rem;
-  padding-inline-end: 0;
+  padding: .5rem;
   overflow-y: scroll;
   color: #bbb !important;
   background-color: #222;
 }
 ol.rfaudioplaylist-list {
   display: block;
-  padding: 0;
+  padding-left: 2rem;
   margin: 0;
 }
 li.rfaudioplaylist-item {
   min-height: 2.5rem;
   padding: 0;
-  list-style: decimal inside none;
+  list-style: decimal outside none;
 }
 li.rfaudioplaylist-start {
-  list-style: none inside none;
+  list-style: none;
 }
-li.rfaudioplaylist-item a {
+li.rfaudioplaylist-item button {
+  padding: 0;
+  overflow: hidden;
+  color: #bbb !important;
+  text-align: left;
   text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  user-select: none;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
-li.rfaudioplaylist-item a:hover,
-li.rfaudioplaylist-item a:focus {
+li.rfaudioplaylist-item button:hover,
+li.rfaudioplaylist-item button:focus {
   color: #fff !important;
   text-decoration: underline !important;
   cursor: pointer;
