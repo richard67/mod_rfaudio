@@ -43,6 +43,9 @@ $showPlaylistItem  = $params->get('show_playlist_item', 0);
 $showItemDuration  = $params->get('show_item_duration', 0);
 $sources           = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
 
+$playlistMinHeight = $playlistMinHeight > $playerHeight ? $playerHeight : $playlistMinHeight;
+$playlistMinWidth  = $playlistMinWidth > $imageWidth ? $imageWidth : $playlistMinWidth;
+
 // Load JS language strings
 Text::script('MOD_RFAUDIO_LOADING');
 Text::script('MOD_RFAUDIO_SEEKING');
