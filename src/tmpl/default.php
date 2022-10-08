@@ -31,20 +31,17 @@ if ($stylesheet !== '-1') {
 $title             = Text::_($module->title);
 $controlsHeight    = $params->get('controls_height', 45);
 $showStatus        = $params->get('show_status', 0);
-$playlistMinHeight = $params->get('playlist_min_height', 120);
-$playlistMinWidth  = $params->get('playlist_min_width', 320);
 $image             = $params->get('image');
 $imageAttribs      = HTMLHelper::_('cleanImageURL', $image)->attributes;
 $imageHeight       = $imageAttribs['height'];
 $imageWidth        = $imageAttribs['width'];
+$playlistMinWidth  = empty($playlist) ? 0 : $params->get('playlist_min_width', 320);
+$playlistMinWidth  = $playlistMinWidth > $imageWidth ? $imageWidth : $playlistMinWidth;
 $playerHeight      = $imageHeight + $controlsHeight;
 $downloadLink      = $params->get('download_link', '');
 $showPlaylistItem  = $params->get('show_playlist_item', 0);
 $showItemDuration  = $params->get('show_item_duration', 0);
 $sources           = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
-
-$playlistMinHeight = $playlistMinHeight > $playerHeight ? $playerHeight : $playlistMinHeight;
-$playlistMinWidth  = $playlistMinWidth > $imageWidth ? $imageWidth : $playlistMinWidth;
 
 // Load JS language strings
 Text::script('MOD_RFAUDIO_LOADING');
@@ -72,28 +69,6 @@ Text::script('MOD_RFAUDIO_SEEKING');
         </div>
     </div>
     <?php if (!empty($playlist)) : ?>
-    <div class="rfaudioplaylistwrapper" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; ?>px; max-width: <?php echo $imageWidth; ?>px;">
-        <div class="rfaudioplaylisttop"> </div>
-        <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; ?>px; max-height: <?php echo $playerHeight; ?>px;">
-            <?php if (array_values($playlist)[0]->position > 0) : ?>
-            <ol class="rfaudioplaylist-list" start="0">
-                <li class="rfaudioplaylist-item rfaudioplaylist-start"><button data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></button></li>
-            <?php else : ?>
-            <ol class="rfaudioplaylist-list">
-            <?php endif; ?>
-                <?php foreach ($playlist as $item) : ?>
-                <li class="rfaudioplaylist-item">
-                    <button data-start="<?php echo $item->position; ?>"><?php echo $item->title; ?>
-                    <?php if ($showItemDuration && !empty($item->duration)) : ?>
-                    <span class="rfaudio-duration">
-                        <?php echo preg_replace('/^0[0]+' . Text::_('MOD_RFAUDIO_PLAYLIST_TIME_SEPARATOR') . '/', '', \DateTime::createFromFormat('U', round($item->duration))->format(Text::_('MOD_RFAUDIO_PLAYLIST_TIME_FORMAT'))); ?>
-                    </span>
-                    <?php endif; ?>
-                    </button>
-                </li>
-                <?php endforeach; ?>
-            </ol>
-        </div>
-    </div>
+    <?php require ModuleHelper::getLayoutPath('mod_rfaudio', 'default_playlist'); ?>
     <?php endif; ?>
 </div>
