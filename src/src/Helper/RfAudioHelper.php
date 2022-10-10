@@ -104,7 +104,7 @@ class RfAudioHelper
                 $item->position = round($start - $base, 3);
                 $item->duration = round($end - $start, 3);
                 $item->title    = '';
-            } elseIf (!empty($item) && !strpos($line, 'WEBVTT')) {
+            } elseif (!empty($item) && !strpos($line, 'WEBVTT')) {
                 $item->title = $line;
                 $playlist[] = $item;
                 $item = null;

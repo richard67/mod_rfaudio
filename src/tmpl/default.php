@@ -36,6 +36,7 @@ $image             = $params->get('image');
 $imageAttribs      = HTMLHelper::_('cleanImageURL', $image)->attributes;
 $imageHeight       = $imageAttribs['height'];
 $imageWidth        = $imageAttribs['width'];
+$playlistPosition  = $params->get('playlist_position', 'side2');
 $playlistMinWidth  = empty($playlist) ? 0 : $params->get('playlist_min_width', 320);
 $playlistMinWidth  = $playlistMinWidth > $imageWidth ? $imageWidth : $playlistMinWidth;
 $playerHeight      = $imageHeight + $controlsHeight;
@@ -49,8 +50,8 @@ Text::script('MOD_RFAUDIO_LOADING');
 Text::script('MOD_RFAUDIO_SEEKING');
 
 ?>
-<div class="rfaudioplayer" style="max-width: <?php echo ($imageWidth + $playlistMinWidth); ?>px;">
-    <div class="rfaudio" style="width: <?php echo $imageWidth; ?>px;">
+<div class="rfaudioplayer" style="max-width: <?php echo (in_array($playlistPosition, ['side1', 'side2']) ? $imageWidth + $playlistMinWidth : $imageWidth); ?>px;">
+    <div class="rfaudio <?php echo 'rfaudioplaylist-' . $playlistPosition; ?>" style="width: <?php echo $imageWidth; ?>px;">
         <div class="rfaudioimg">
             <?php if ($showStatus || $showPlaylistItem) : ?>
             <div class="rfaudiostatus"<?php echo $showStatus ? ' data-show-status="true"' : ''; ?><?php echo $showPlaylistItem ? ' data-show-title="true"' : ''; ?>> </div>
@@ -70,6 +71,6 @@ Text::script('MOD_RFAUDIO_SEEKING');
         </div>
     </div>
     <?php if (!empty($playlist)) : ?>
-    <?php require ModuleHelper::getLayoutPath('mod_rfaudio', 'default_playlist'); ?>
+        <?php require ModuleHelper::getLayoutPath('mod_rfaudio', 'default_playlist'); ?>
     <?php endif; ?>
 </div>

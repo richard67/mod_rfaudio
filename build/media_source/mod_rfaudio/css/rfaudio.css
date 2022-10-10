@@ -9,6 +9,10 @@ div.rfaudio {
   color: #fff;
   background-color: #000;
 }
+div.rfaudio.rfaudioplaylist-side1,
+div.rfaudio.rfaudioplaylist-top {
+  order: 1;
+}
 div.rfaudioimg {
   position: relative;
   float: none;
@@ -47,6 +51,13 @@ div.rfaudioplaylistwrapper {
   align-items: stretch;
   padding: 0;
   background-color: #222;
+}
+div.rfaudioplaylistwrapper.rfaudioplaylist-none {
+  display: none;
+}
+div.rfaudioplaylistwrapper.rfaudioplaylist-side1,
+div.rfaudioplaylistwrapper.rfaudioplaylist-top {
+  order: 0;
 }
 div.rfaudioplaylisttop {
   height: 1.5rem;

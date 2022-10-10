@@ -10,7 +10,7 @@
   }
 
   function seek(el, pos) {
-    el.currentTime = pos.toFixed(1);
+    el.currentTime = pos;
     el.play();
   }
 
@@ -87,7 +87,7 @@
       var _loop = function _loop(i) {
         var myPlaylistItem = myPlaylistItems[i].getElementsByTagName('button')[0];
         var item = {
-          start: parseFloat(myPlaylistItem.getAttribute('data-start')),
+          start: parseFloat(myPlaylistItem.getAttribute('data-start')).toFixed(1),
           title: myPlaylistItem.innerHTML
         };
         myPlaylist[i] = item;
@@ -115,7 +115,7 @@
         var myPlaylistItem = myPlaylistItems[_i].getElementsByTagName('button')[0];
 
         myPlaylistItem.addEventListener('click', function () {
-          seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')));
+          seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')).toFixed(1));
         });
       };
 
