@@ -1,7 +1,7 @@
 # Richard Fath's Audio Player Module for Joomla 4.
 This is my audio player module for Joomla 4.
 
-I use it for replacing my inline scripted audio players of my private Jooomla 3.10 website as part of preparing my site for upgrading to Jooomla 4, which is still work in progress.
+I use it on my private website.
 
 The audio itself is a standard HTML5 audio element using either the `src` attribute or `source` elements.
 
