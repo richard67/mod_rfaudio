@@ -11,17 +11,10 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 
-$playlistMinHeight = $params->get('playlist_min_height', 120);
-$playlistMinHeight = $playlistMinHeight > $playerHeight ? $playerHeight : $playlistMinHeight;
-
 ?>
-<?php if (in_array($playlistPosition, ['side1', 'side2'])) : ?>
-<div class="rfaudioplaylistwrapper <?php echo 'rfaudioplaylist-' . $playlistPosition; ?>" style="flex: 1 1 <?php echo $playlistMinWidth; ?>px; max-width: <?php echo $imageWidth; ?>px;">
-<?php else : ?>
-<div class="rfaudioplaylistwrapper <?php echo 'rfaudioplaylist-' . $playlistPosition; ?>" style="flex: 0 1 <?php echo $imageWidth; ?>px;">
-<?php endif; ?>
+<div class="rfaudioplaylistwrapper rfaudioplaylistwrapper-<?php echo $module->id; ?> rfaudioplaylist-<?php echo $playlistPosition; ?>">
     <div class="rfaudioplaylisttop"> </div>
-    <div class="rfaudioplaylist" style="flex: 1 1 <?php echo $playlistMinHeight; ?>px; max-height: <?php echo $playerHeight; ?>px;">
+    <div class="rfaudioplaylist rfaudioplaylist-<?php echo $module->id; ?>">
         <?php if (array_values($playlist)[0]->position > 0) : ?>
         <ol class="rfaudioplaylist-list" start="0">
             <li class="rfaudioplaylist-item rfaudioplaylist-start"><button data-start="0"><?php echo Text::_('MOD_RFAUDIO_PLAYLIST_START'); ?></button></li>
