@@ -37,7 +37,10 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
     {
         $data = parent::getLayoutData();
 
-        $data['audioAttribs'] = $this->getHelperFactory()->getHelper('RfAudioHelper')->getAudioAttributes($data['params']);
+        $helper = $this->getHelperFactory()->getHelper('RfAudioHelper');
+
+        $data['audioAttribs'] = $helper->getAudioAttributes($data['params']);
+        $data['playlist']     = $helper->getPlaylist($data['params']);
 
         return $data;
     }
