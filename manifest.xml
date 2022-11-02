@@ -28,7 +28,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/2.0.0-beta1/mod_rfaudio_2.0.0-beta1.zip</downloadurl>
 		</downloads>
-		<sha512>2554ed30bdb534b7a567fa27a3c7076afdfee5c80b7d6970910004ff600cb94f02a317ea14495e1d2e91af8ac570e6795ee046e1b9f3451a8b026ce9a8970998</sha512>
+		<sha512>f884114c08ba00342d900542cb67a911398228a9d81e42bba4416c03959dd0f96093ae534bacea576eda353088ad17a8989f9309d6b58e5c77adc0d5716a4686</sha512>
 		<tags>
 			<tag>beta</tag>
 		</tags>
