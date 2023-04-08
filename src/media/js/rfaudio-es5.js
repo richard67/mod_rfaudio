@@ -8,12 +8,10 @@
   if (!Joomla) {
     throw new Error('Joomla API was not properly initialized');
   }
-
   function seek(el, pos) {
     el.currentTime = pos;
     el.play();
   }
-
   function updchapter(elAudio, elStatus, playlist, txtSeeking) {
     if (elAudio.seeking) {
       elStatus.innerHTML = txtSeeking;
@@ -22,28 +20,22 @@
     } else {
       var tmpTitle = '';
       var i = playlist.length - 1;
-
       while (i >= 0) {
         if (elAudio.currentTime >= playlist[i].start) {
           tmpTitle = playlist[i].title;
           break;
         }
-
         i -= 1;
       }
-
       elStatus.innerHTML = tmpTitle;
     }
   }
-
   function setstatus(el, txt) {
     el.innerHTML = txt;
   }
-
   function clearstatus(el, txt) {
     if (el.innerHTML === txt) el.innerHTML = '';
   }
-
   var allAudioPlayerDivs = document.querySelectorAll('div.rfaudioplayer');
   allAudioPlayerDivs.forEach(function (audioPlayerDiv) {
     var myAudio = audioPlayerDiv.getElementsByTagName('audio')[0];
@@ -52,10 +44,8 @@
     var showTitle = myStatus ? !!myStatus.getAttribute('data-show-title') : false;
     var myPlaylistItems = audioPlayerDiv.getElementsByTagName('li');
     var textSeeking = '';
-
     if (showStatus) {
       var textLoading = Joomla.Text._('MOD_RFAUDIO_LOADING').replace('&hellip;', "\u2026");
-
       textSeeking = Joomla.Text._('MOD_RFAUDIO_SEEKING').replace('&hellip;', "\u2026");
       myAudio.addEventListener('loadstart', function () {
         if (myAudio.networkState === 2) {
@@ -80,11 +70,9 @@
         clearstatus(myStatus, textSeeking);
       });
     }
-
     if (showTitle) {
       var myPlaylist = [];
-
-      var _loop = function _loop(i) {
+      var _loop = function _loop() {
         var myPlaylistItem = myPlaylistItems[i].getElementsByTagName('button')[0];
         var item = {
           start: parseFloat(myPlaylistItem.getAttribute('data-start')).toFixed(1),
@@ -95,11 +83,9 @@
           seek(myAudio, item.start);
         });
       };
-
       for (var i = 0; i < myPlaylistItems.length; i += 1) {
-        _loop(i);
+        _loop();
       }
-
       myPlaylist[myPlaylistItems.length] = {
         start: myAudio.duration,
         title: ''
@@ -111,16 +97,14 @@
         updchapter(myAudio, myStatus, myPlaylist, textSeeking);
       });
     } else {
-      var _loop2 = function _loop2(_i) {
+      var _loop2 = function _loop2() {
         var myPlaylistItem = myPlaylistItems[_i].getElementsByTagName('button')[0];
-
         myPlaylistItem.addEventListener('click', function () {
           seek(myAudio, parseFloat(myPlaylistItem.getAttribute('data-start')).toFixed(1));
         });
       };
-
       for (var _i = 0; _i < myPlaylistItems.length; _i += 1) {
-        _loop2(_i);
+        _loop2();
       }
     }
   });
