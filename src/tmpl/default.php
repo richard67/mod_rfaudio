@@ -43,7 +43,9 @@ $playerHeight      = $imageHeight + $controlsHeight;
 $playlistMinHeight = $params->get('playlist_min_height', 120);
 $playlistMinHeight = $playlistMinHeight > $playerHeight ? $playerHeight : $playlistMinHeight;
 $playerMaxWidth    = in_array($playlistPosition, ['side1', 'side2']) ? $imageWidth + $playlistMinWidth : $imageWidth;
-$playlistWrapStyle = in_array($playlistPosition, ['side1', 'side2']) ? 'flex: 1 1 ' . $playlistMinWidth . 'px; max-width: ' .  $imageWidth . 'px;' : 'flex: 0 1 ' . $imageWidth . 'px;';
+$playlistWrapStyle = in_array($playlistPosition, ['side1', 'side2'])
+    ? '-webkit-box-flex: 1; -ms-flex: 1 1 ' . $playlistMinWidth . 'px; flex: 1 1 ' . $playlistMinWidth . 'px; max-width: ' .  $imageWidth . 'px;'
+    : '-webkit-box-flex: 0; -ms-flex: 0 1 ' . $imageWidth . 'px; flex: 0 1 ' . $imageWidth . 'px;';
 $downloadLink      = $params->get('download_link', '');
 $showPlaylistItem  = $params->get('show_playlist_item', 0);
 $showItemDuration  = $params->get('show_item_duration', 0);
@@ -55,7 +57,7 @@ div.rfaudio-{$module->id} { width: {$imageWidth}px; }
 div.rfaudioctl-{$module->id} { height: {$controlsHeight}px; }
 div.rfaudioctl-{$module->id} audio { max-height: {$controlsHeight}px; }
 div.rfaudioplaylistwrapper-{$module->id} { {$playlistWrapStyle} }
-div.rfaudioplaylist-{$module->id} { flex: 1 1 {$playlistMinHeight}px; max-height: {$playerHeight}px; }"
+div.rfaudioplaylist-{$module->id} { -webkit-box-flex: 1; -ms-flex: 1 1 {$playlistMinHeight}px; flex: 1 1 {$playlistMinHeight}px; max-height: {$playerHeight}px; }"
 );
 
 // Load JS language strings
