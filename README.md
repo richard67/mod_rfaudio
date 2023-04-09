@@ -1,9 +1,9 @@
 # Richard Fath's Audio Player Module for Joomla
-This is my audio player module for Joomla 4.0 and later versions.
+This is my audio player module for Joomla 4 and later versions.
 
 I use it on my private website.
 
-The audio itself is a standard HTML5 audio element using either the `src` attribute or `source` elements.
+The audio itself is a standard HTML5 audio element using either the `src` attribute or `source` elements, and the player controls are the built-in controls of the browser.
 
 What my player provides in addition is a playlist which can be used to navigate to sections of the audio (mostly songs) and to display the currently played title as well as loading or seeking status, and an image which can be used to show e.g. a cover image of a record.
 
