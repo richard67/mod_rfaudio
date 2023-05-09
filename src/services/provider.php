@@ -33,8 +33,8 @@ return new class implements ServiceProviderInterface
      */
     public function register(Container $container)
     {
-        $container->registerServiceProvider(new ModuleDispatcherFactory('\\Joomla\\Module\\RfAudio'));
-        $container->registerServiceProvider(new HelperFactory('\\Joomla\\Module\\RfAudio\\Site\\Helper'));
+        $container->registerServiceProvider(new ModuleDispatcherFactory('\\RichardFath\\Module\\RfAudio'));
+        $container->registerServiceProvider(new HelperFactory('\\RichardFath\\Module\\RfAudio\\Site\\Helper'));
 
         $container->registerServiceProvider(new Module());
     }

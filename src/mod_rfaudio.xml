@@ -9,7 +9,7 @@
 	<authorUrl>www.richard-fath.de</authorUrl>
 	<version>2.0.0</version>
 	<description>MOD_RFAUDIO_XML_DESCRIPTION</description>
-	<namespace path="src">Joomla\Module\RfAudio</namespace>
+	<namespace path="src">RichardFath\Module\RfAudio</namespace>
 	<media destination="mod_rfaudio" folder="media">
 		<folder>css</folder>
 		<folder>js</folder>
