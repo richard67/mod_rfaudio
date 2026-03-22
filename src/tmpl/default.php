@@ -29,7 +29,7 @@ if ($stylesheet !== '-1') {
     $wa->registerAndUseStyle('mod_rfaudio', 'mod_rfaudio/' . $stylesheet);
 }
 
-$title             = Text::_($module->title);
+$title             = htmlspecialchars(Text::_($module->title), ENT_QUOTES, 'UTF-8');
 $controlsHeight    = $params->get('controls_height', 45);
 $showStatus        = $params->get('show_status', 0);
 $image             = $params->get('image');
