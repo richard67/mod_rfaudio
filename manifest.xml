@@ -28,7 +28,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/richard67/mod_rfaudio/releases/download/2.0.2/mod_rfaudio_2.0.2.zip</downloadurl>
 		</downloads>
-		<sha512>3397125d41cb26bcb05c31181f084e468d55f24ea0dc1d0889bc16b39bc7fc3f8a6f7ed802178e2fca48a600cc9f140b21ec03c5aa1f604262060aee09209930</sha512>
+		<sha512>7b2c598f7f22097437ed0db4a6b35d42eab830ce0a18ef3ab40fcb8f36971f7a19ee2ae1f2ea51c859d3cb500b9d4801a2391b3647d64f867328d064f829f37b</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
