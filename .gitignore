@@ -2,6 +2,10 @@
 build
 mod_rfaudio_*.zip
 
+# Composer
+composer.phar
+vendor/
+
 # OSX
 .DS_Store
 ._*
