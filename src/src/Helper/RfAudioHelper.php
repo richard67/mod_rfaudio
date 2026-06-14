@@ -9,8 +9,8 @@
 
 namespace RichardFath\Module\RfAudio\Site\Helper;
 
-use Joomla\CMS\Filesystem\Path;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\Filesystem\Path;
 use Joomla\Registry\Registry;
 use Joomla\Utilities\ArrayHelper;
 
