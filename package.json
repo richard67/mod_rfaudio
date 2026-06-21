@@ -1,0 +1,23 @@
+{
+  "name": "mod_rfaudio",
+  "version": "2.0.3",
+  "description": "Richard Fath's Audio player module for Joomla 4 and newer",
+  "keywords": [
+    "audio-player",
+    "joomla-module"
+  ],
+  "homepage": "https://github.com/richard67/mod_rfaudio#readme",
+  "bugs": {
+    "url": "https://github.com/richard67/mod_rfaudio/issues"
+  },
+  "license": "GPL-2.0-or-later",
+  "author": {
+    "name": "Richard Fath",
+    "email": "richard@richard-fath.de",
+    "url": "https://www.richard-fath.de/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richard67/mod_rfaudio.git"
+  }
+}

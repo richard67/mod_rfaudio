@@ -1,11 +1,13 @@
 # Builds
-build
 mod_rfaudio_*.zip
 
 # Composer
 composer.phar
 vendor/
 .php-cs-fixer.cache
+
+# NPM
+node_modules/
 
 # Tests
 joomla/
