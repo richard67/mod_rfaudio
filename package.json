@@ -19,5 +19,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/richard67/mod_rfaudio.git"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
   }
 }
