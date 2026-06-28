@@ -10,7 +10,7 @@
 	<version>2.0.3</version>
 	<description>MOD_RFAUDIO_XML_DESCRIPTION</description>
 	<namespace path="src">RichardFath\Module\RfAudio</namespace>
-	<media destination="mod_rfaudio" folder="media">
+	<media destination="mod_rfaudio" folder="media/mod_rfaudio">
 		<folder>css</folder>
 		<folder>js</folder>
 		<folder>vtt</folder>
