@@ -15,7 +15,7 @@
 		<folder>js</folder>
 		<folder>vtt</folder>
 	</media>
-	<files>
+	<files folder="modules/mod_rfaudio">
 		<folder module="mod_rfaudio">services</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
