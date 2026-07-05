@@ -1,6 +1,7 @@
 # Builds
 build
-mod_rfaudio_*.zip
+releases
+dist
 
 # OSX
 .DS_Store
@@ -29,3 +30,24 @@ Desktop.ini
 *.swp
 *~.nib
 *~
+
+# composer
+composer.phar
+vendor
+
+# Robo
+robo.phar
+RoboFile.ini
+
+#cypress
+node_modules
+/tests/cypress/output/screenshots
+!/tests/cypress/output/screenshots/.gitkeep
+/tests/cypress/output/videos
+!/tests/cypress/output/videos/.gitkeep
+cypress.config.js
+joomla
+
+# Package building related
+jorobo.ini
+

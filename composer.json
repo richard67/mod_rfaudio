@@ -1,0 +1,23 @@
+{
+    "name": "richard67/mod_rfaudio",
+    "description": "Richard Fath's Audio player module for Joomla 4 and newer",
+    "type": "project",
+    "require": {
+        "php": "^8.2"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Richard Fath",
+            "email": "richard@richard-fath.de"
+        }
+    ],
+    "require-dev": {
+        "joomla-projects/jorobo": "^0.13.1",
+        "squizlabs/php_codesniffer": "^4.0",
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "phpstan/phpstan": "^2.2",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpunit/phpunit": "^13.2"
+    }
+}
