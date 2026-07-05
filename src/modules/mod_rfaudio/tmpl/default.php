@@ -49,7 +49,7 @@ $playlistWrapStyle = \in_array($playlistPosition, ['side1', 'side2'])
 $downloadLink      = $params->get('download_link', '');
 $showPlaylistItem  = $params->get('show_playlist_item', 0);
 $showItemDuration  = $params->get('show_item_duration', 0);
-$sources           = strpos($audioAttribs, ' src="') === false ? $params->get('sources') : [];
+$sources           = !str_contains($audioAttribs, ' src="') ? $params->get('sources') : [];
 
 $wa->addInlineStyle(
     "div.rfaudioplayer-{$module->id} { max-width: {$playerMaxWidth}px; }
