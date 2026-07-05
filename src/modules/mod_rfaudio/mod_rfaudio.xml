@@ -16,17 +16,10 @@
 		<folder>vtt</folder>
 	</media>
 	<files>
-		<folder module="mod_rfaudio">services</folder>
-		<folder>src</folder>
-		<folder>tmpl</folder>
+		##MODULE_FILES##
 	</files>
-	<languages>
-		<language tag="de-DE">language/de-DE/mod_rfaudio.ini</language>
-		<language tag="de-DE">language/de-DE/mod_rfaudio.sys.ini</language>
-		<language tag="en-GB">language/en-GB/mod_rfaudio.ini</language>
-		<language tag="en-GB">language/en-GB/mod_rfaudio.sys.ini</language>
-		<language tag="ru-RU">language/ru-RU/mod_rfaudio.ini</language>
-		<language tag="ru-RU">language/ru-RU/mod_rfaudio.sys.ini</language>
+	<languages folder="language">
+		##LANGUAGE_FILES##
 	</languages>
 	<updateservers>
 		<!-- Note: No spaces or linebreaks allowed between the server tags -->
