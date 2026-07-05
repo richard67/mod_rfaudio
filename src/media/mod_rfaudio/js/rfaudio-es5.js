@@ -1,3 +1,9 @@
+/**
+ * @package     mod_rfaudio
+ *
+ * @copyright   (C) 2022 Richard Fath <https://www.richard-fath.de>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 (function () {
   'use strict';
 
