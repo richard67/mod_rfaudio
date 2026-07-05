@@ -97,17 +97,17 @@ class RfAudioHelper
 
         foreach ($lines as $line) {
             if (preg_match('/^([^->\s]+)\s+-->\s+([^->\s]+)\s*$/', $line, $matches)) {
-                $base = floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 00:00:00.000')->format('U.u'));
-                $start = floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 ' . $matches[1])->format('U.u'));
-                $end = floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 ' . $matches[2])->format('U.u'));
-                $item = new \stdClass();
+                $base           = \floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 00:00:00.000')->format('U.u'));
+                $start          = \floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 ' . $matches[1])->format('U.u'));
+                $end            = \floatval(\DateTime::createFromFormat('Y-m-d H:i:s.u', '2000-01-01 ' . $matches[2])->format('U.u'));
+                $item           = new \stdClass();
                 $item->position = round($start - $base, 3);
                 $item->duration = round($end - $start, 3);
                 $item->title    = '';
             } elseif (!empty($item) && !strpos($line, 'WEBVTT')) {
                 $item->title = $line;
-                $playlist[] = $item;
-                $item = null;
+                $playlist[]  = $item;
+                $item        = null;
             }
         }
 

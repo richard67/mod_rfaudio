@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -42,8 +42,8 @@ $playlistMinWidth  = $playlistMinWidth > $imageWidth ? $imageWidth : $playlistMi
 $playerHeight      = $imageHeight + $controlsHeight;
 $playlistMinHeight = $params->get('playlist_min_height', 120);
 $playlistMinHeight = $playlistMinHeight > $playerHeight ? $playerHeight : $playlistMinHeight;
-$playerMaxWidth    = in_array($playlistPosition, ['side1', 'side2']) ? $imageWidth + $playlistMinWidth : $imageWidth;
-$playlistWrapStyle = in_array($playlistPosition, ['side1', 'side2'])
+$playerMaxWidth    = \in_array($playlistPosition, ['side1', 'side2']) ? $imageWidth + $playlistMinWidth : $imageWidth;
+$playlistWrapStyle = \in_array($playlistPosition, ['side1', 'side2'])
     ? '-webkit-box-flex: 1; -ms-flex: 1 1 ' . $playlistMinWidth . 'px; flex: 1 1 ' . $playlistMinWidth . 'px; max-width: ' .  $imageWidth . 'px;'
     : '-webkit-box-flex: 0; -ms-flex: 0 1 ' . $imageWidth . 'px; flex: 0 1 ' . $imageWidth . 'px;';
 $downloadLink      = $params->get('download_link', '');
@@ -71,7 +71,7 @@ Text::script('MOD_RFAUDIO_SEEKING');
             <?php if ($showStatus || $showPlaylistItem) : ?>
             <div class="rfaudiostatus"<?php echo $showStatus ? ' data-show-status="true"' : ''; ?><?php echo $showPlaylistItem ? ' data-show-title="true"' : ''; ?>> </div>
             <?php endif; ?>
-            <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image',]); ?>
+            <?php echo LayoutHelper::render('joomla.html.image', ['src' => $image, 'title' => $title, 'alt' => $title, 'itemprop' => 'image']); ?>
         </div>
         <div class="rfaudioctl rfaudioctl-<?php echo $module->id; ?>">
             <audio title="<?php echo $title; ?>"<?php echo $audioAttribs; ?>>
